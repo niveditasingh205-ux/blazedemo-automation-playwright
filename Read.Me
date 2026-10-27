@@ -1,0 +1,61 @@
+   # BlazeDemo Playwright Automation
+
+End-to-end tests for the [BlazeDemo](https://blazedemo.com/) sample travel-booking site, written in TypeScript with Playwright Test and the Page Object Model.
+
+## Coverage
+
+- Select departure and destination cities and search for flights.
+- Verify the selected route, available flight rows, and flight selection.
+- Complete the passenger and payment form.
+- Verify the purchase confirmation, status, amount, and masked card number.
+- Capture screenshots, videos, and traces when a test fails.
+- Run the type check and end-to-end suite in GitHub Actions on pushes and pull requests.
+
+## Requirements
+
+- Node.js 20 or newer
+- npm
+
+## Setup
+
+```bash
+npm ci
+npx playwright install chromium
+```
+
+## Run tests
+
+```bash
+# Run the suite headlessly
+npm test
+
+# Run with a visible Chromium browser
+npm run test:headed
+
+# Open Playwright's interactive test runner
+npm run test:ui
+
+# Type-check the TypeScript project
+npm run typecheck
+
+# Open the HTML report from the most recent run
+npm run report
+```
+
+The sample card value in the test is for this demo only. Never use real payment details in automation tests.
+
+## Project structure
+
+```text
+Pages/
+  ConfirmationPage.ts
+  FlightsPage.ts
+  Homepage.ts
+  PurchasePage.ts
+tests/
+  booking.spec.ts
+playwright.config.ts
+tsconfig.json
+```
+
+The page classes keep selectors and page actions together; the test spec describes user journeys and verifies their outcomes.
